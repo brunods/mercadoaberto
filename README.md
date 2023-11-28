@@ -2,8 +2,6 @@
 
 TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project.
 
-você não precisa de um readme, mas é uma boa ideia ter um. Um readme é um arquivo de texto que introduz e explica um projeto. Ele contém informações que são comumente necessárias para entender o projeto, como o que o projeto faz, como instalá-lo, como usá-lo e assim por diante.
-
 # Getting Started
 
 TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
