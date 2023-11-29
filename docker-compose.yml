@@ -1,0 +1,31 @@
+services:
+  pgsql:
+    image: 'postgres:16'
+    ports:
+      - '${DB_PORT:-5432}:5432'
+    environment:
+      POSTGRES_DB: '${DB_DATABASE:-mercardo_aberto}'
+      POSTGRES_USER: '${DB_USERNAME:-postgres}'
+      POSTGRES_PASSWORD: '${DB_PASSWORD:-password}'
+    volumes:
+      - './.docker/postgres:/var/lib/postgresql/data'
+    networks:
+      - ljp
+    healthcheck:
+      test:
+        - CMD
+        - pg_isready
+        - '-q'
+        - '-d'
+        - '${DB_DATABASE}'
+        - '-U'
+        - '${DB_USERNAME}'
+      retries: 3
+      timeout: 5s
+
+networks:
+  ljp:
+    driver: bridge
+volumes:
+  ljp-pgsql:
+    driver: local
