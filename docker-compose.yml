@@ -23,6 +23,22 @@ services:
       retries: 3
       timeout: 5s
 
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    user: root
+    depends_on:
+      - pgsql
+    environment:
+      PGADMIN_DEFAULT_EMAIL: 'postgres@postgres.com'
+      PGADMIN_DEFAULT_PASSWORD: '${DB_PASSWORD:-password}'
+    ports:
+      - 8081:80
+    volumes:
+      - './.docker/pgadmin:/var/lib/pgadmin'
+    networks:
+      - ljp
+
 networks:
   ljp:
     driver: bridge
