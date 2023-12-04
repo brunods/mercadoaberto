@@ -33,13 +33,13 @@ Route::get('/dashboard', function () {
 
 
 Route::prefix('pedido')->group(function () {
-    // Route::get('/pedido', [PedidoController::class, 'index'])->name('pedido.index');
-    // Route::get('/pedido/create', [PedidoController::class, 'create'])->name('pedido.create');
-    // Route::post('/pedido', [PedidoController::class, 'store'])->name('pedido.store');
+    Route::get('/pedido', [PedidoController::class, 'index'])->name('pedido.index');
+    Route::get('/pedido/create', [PedidoController::class, 'create'])->name('pedido.create');
+    Route::post('/pedido', [PedidoController::class, 'store'])->name('pedido.store');
     Route::get('/rastreio', [PedidoController::class, 'rastreio'])->name('pedido.rastreio');
-    // Route::get('/pedido/{pedido}/edit', [PedidoController::class, 'edit'])->name('pedido.edit');
-    // Route::put('/pedido/{pedido}', [PedidoController::class, 'update'])->name('pedido.update');
-    // Route::delete('/pedido/{pedido}', [PedidoController::class, 'destroy'])->name('pedido.destroy');
+    Route::get('/pedido/{pedido}/edit', [PedidoController::class, 'edit'])->name('pedido.edit');
+    Route::put('/pedido/{pedido}', [PedidoController::class, 'update'])->name('pedido.update');
+    Route::delete('/pedido/{pedido}', [PedidoController::class, 'destroy'])->name('pedido.destroy');
 });
 
 Route::middleware('auth')->group(function () {
