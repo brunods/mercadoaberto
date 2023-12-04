@@ -15,3 +15,8 @@
 - `php artisan serve`
 - `php artisan migrate`
 - Acesse `localhost:8000/login` ou `localhost:8000/register`
+
+# Outros comandos
+- `composer run-script analyse`: procura por erros no código e mostra
+- `composer run-script format`: corrige automaticamente problemas de code style
+- `php artisan insights`: analisa e mostra qualidade de código e code style
