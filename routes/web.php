@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\PedidoController;
+use App\Http\Controllers\OrderController;
 
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -31,15 +31,8 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-
 Route::prefix('pedido')->group(function () {
-    Route::get('/pedido', [PedidoController::class, 'index'])->name('pedido.index');
-    Route::get('/pedido/create', [PedidoController::class, 'create'])->name('pedido.create');
-    Route::post('/pedido', [PedidoController::class, 'store'])->name('pedido.store');
-    Route::get('/rastreio', [PedidoController::class, 'rastreio'])->name('pedido.rastreio');
-    Route::get('/pedido/{pedido}/edit', [PedidoController::class, 'edit'])->name('pedido.edit');
-    Route::put('/pedido/{pedido}', [PedidoController::class, 'update'])->name('pedido.update');
-    Route::delete('/pedido/{pedido}', [PedidoController::class, 'destroy'])->name('pedido.destroy');
+    Route::get('/rastreio', [OrderController::class, 'tracking'])->name('order.tracking');
 });
 
 Route::middleware('auth')->group(function () {
