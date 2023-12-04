@@ -21,9 +21,9 @@ const OrderTracker: React.FC<OrderTrackerProps> = ({ status }) => {
                                 className={`flex items-center justify-center w-10 h-10 rounded-full border-2 ${index < steps.indexOf(status) ? 'border-green-500' : 'border-green-500'
                                     }`}
                             >
-                                <span className="material-symbols-outlined">
+                                {/* <span className="material-symbols-outlined">
                                     receipt_long
-                                </span>
+                                </span> */}
                             </div>
                             {index < steps.length - 1 && <div className="h-px w-16 bg-gray-300"></div>}
                         </div>
