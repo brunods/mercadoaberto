@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
-use App\Models\Product;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -36,7 +35,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::group(['prefix' => '/products'], function() {
+    Route::group(['prefix' => '/products'], function () {
         Route::get('/', [ProductController::class, 'index'])->name('products');
         Route::get('/create', [ProductController::class, 'create'])->name('products.create');
         Route::get('/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
