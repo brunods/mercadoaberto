@@ -28,10 +28,18 @@ export default function ProductList({ products = [], onUpdate, onDelete }: Produ
                                     <p className="text-sm font-thin text-green-700">Frete grátis</p>
                                 </div>
                                 <div className="absolute right-1 top-1 space-x-3">
-                                    <button className="bg-white p-1 rounded-full" onClick={() => onUpdate?.(product.id)}>
+                                    <button
+                                        className="bg-white p-1 rounded-full"
+                                        aria-label={`edit ${product.name}`}
+                                        onClick={() => onUpdate?.(product.id)}
+                                    >
                                         <EditIcon className="w-6" />
                                     </button>
-                                    <button className="bg-white p-1 rounded-full" onClick={() => onDelete?.(product.id)}>
+                                    <button
+                                        className="bg-white p-1 rounded-full"
+                                        aria-label={`delete ${product.name}`}
+                                        onClick={() => onDelete?.(product.id)}
+                                    >
                                         <CloseIcon className="w-6" />
                                     </button>
                                 </div>
