@@ -1,21 +1,24 @@
 import NotificationComponent from "@/Components/Notification";
 import useBroadcast from "@/Hooks/useBroadcast";
+import { useNotificationStore } from "@/Store/notification";
 import { Product } from "@/types";
-import { ReactNode, useCallback, useState } from "react";
+import { ReactNode } from "react";
 import { createPortal } from "react-dom";
 
 export default function NotificationLayout({ children }: { children: ReactNode }) {
-    const [notifications, setNotifications] = useState<{ title: string; message: string; }[]>([]);
-
-    const handleAddProductNotification = useCallback(({ product }: { product: Product }) => {
-        notifications.push({ title: 'Novo produto adicionado!', message: product.name });
-        setNotifications(Array.from(notifications));
-    }, []);
+    const { notifications, add, remove } = useNotificationStore();
 
     useBroadcast({
         channel: 'product',
         event: 'ProductCreateNotification',
-        handle: handleAddProductNotification,
+        handle: ({ product }: { product: Product }) => {
+            add({
+                id: crypto.randomUUID(),
+                title: 'Novo produto adicionado',
+                message: product.name,
+                type: "info",
+            });
+        },
     });
 
     return (
@@ -23,15 +26,11 @@ export default function NotificationLayout({ children }: { children: ReactNode }
             {children}
             {createPortal(
                 <>
-                    {Array.from(notifications.values()).map((notification, index) => (
+                    {notifications.map((notification, index) => (
                         <NotificationComponent
                             key={index}
-                            notification={{
-                                id: index,
-                                ...notification,
-                                type: 'info'
-                            }}
-                            removeNotification={console.log}
+                            notification={notification}
+                            removeNotification={remove}
                         />
                     ))}
                 </>,

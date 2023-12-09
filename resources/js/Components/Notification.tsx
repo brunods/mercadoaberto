@@ -10,12 +10,12 @@ import {
 
 export interface NotificationComponentProps {
     notification: {
-        id: number;
+        id: number | string;
         title?: string;
         message?: string;
         type?: "success" | "error" | "warning" | "info";
     };
-    removeNotification: (id: number) => void;
+    removeNotification: (id: number | string) => void;
 }
 
 const notificationStyles = {
