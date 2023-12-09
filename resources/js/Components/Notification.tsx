@@ -45,7 +45,7 @@ export default function NotificationComponent({
 
     return (
         <>
-            <div className="pointer-events-auto w-full max-w-sm overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 absolute top-5 right-5">
+            <div className="pointer-events-auto w-full max-w-sm overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 fixed top-5 right-5">
                 <div className="flex w-full flex-col items-center space-y-4 sm:items-end">
                     <Transition
                         show={true}
