@@ -21,4 +21,3 @@
 - `composer run-script format`: corrige automaticamente problemas de code style
 - `php artisan insights`: analisa e mostra qualidade de código e code style
 - `npm run test`: testes e2e do front end
-falksjdlfka
