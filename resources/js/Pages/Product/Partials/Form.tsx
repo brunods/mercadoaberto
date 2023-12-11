@@ -19,7 +19,6 @@ export interface ProductFormProps {
     };
     processing?: boolean;
     isDirty?: boolean;
-    recentlySuccessful?: boolean;
     onSubmit?: FormEventHandler<HTMLFormElement>;
     onChange?: (field: "name" | "description" | "price", event: ChangeEvent<HTMLInputElement>) => void;
 }
@@ -29,7 +28,6 @@ export default function ProductForm({
     errors,
     processing = false,
     isDirty = false,
-    recentlySuccessful = false,
     onSubmit,
     onChange
 }: ProductFormProps) {
@@ -100,19 +98,6 @@ export default function ProductForm({
                         >
                             Salvar
                         </PrimaryButton>
-
-                        <Transition
-                            show={recentlySuccessful}
-                            enter="transition ease-in-out"
-                            enterFrom="opacity-0"
-                            leave="transition ease-in-out"
-                            leaveTo="opacity-0"
-                            afterLeave={() => router.visit(route("products"))}
-                        >
-                            <p className="text-sm text-gray-600 dark:text-gray-400">
-                                Produto salvo com sucesso.
-                            </p>
-                        </Transition>
                     </form>
                 </div>
             </div>
