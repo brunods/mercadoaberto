@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build && vite build --ssr",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test": "npx playwright test"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.3.1",
@@ -28,5 +29,11 @@
     "tailwindcss": "^3.2.1",
     "typescript": "^5.0.2",
     "vite": "^4.0.0"
+  },
+  "dependencies": {
+    "@heroicons/react": "^2.0.18",
+    "laravel-echo": "^1.15.3",
+    "pusher-js": "^8.4.0-rc2",
+    "zustand": "^4.4.7"
   }
 }
