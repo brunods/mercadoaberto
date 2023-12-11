@@ -13,7 +13,7 @@ class ClientController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Cliente/Index', [
+        return Inertia::render('Client/Index', [
             'products' => Client::all(),
         ]);
     }
@@ -23,7 +23,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Cliente/CreateOrEdit');
+        return Inertia::render('Client/CreateOrEdit');
     }
 
     /**
@@ -31,32 +31,47 @@ class ClientController extends Controller
      */
     public function store(ClientCreateOrUpdateRequest $request)
     {
-        // Product::create($request->only(['name', 'description', 'price']));
+        Client::create($request->only(
+            [
+                'name',
+                'cep',
+                'address',
+                'address_number',
+                'city',
+                'state',
+                'district',
+                'mail',
+                'phone',
+            ]
+        ));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Client $product)
+    public function edit(Client $client)
     {
-        // return Inertia::render('Product/CreateOrEdit', [
-        //     'product' => $product,
-        // ]);
+        return Inertia::render('Client/CreateOrEdit', ['client' => $client]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(ClientCreateOrUpdateRequest $request, Client $product)
+    public function update(ClientCreateOrUpdateRequest $request, Client $client)
     {
-        // $product->update($request->only(['name', 'description', 'price']));
+        $client->update($request->only(
+            [
+                'name',
+                'cep',
+                'address',
+                'address_number',
+                'city',
+                'state',
+                'district',
+                'mail',
+                'phone',
+            ]));
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Client $product)
+    public function destroy(Client $client)
     {
-        // $product->delete();
+        $client->delete();
     }
 }

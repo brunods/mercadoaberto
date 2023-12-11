@@ -4,12 +4,12 @@ import { Head, router } from "@inertiajs/react";
 import ClientList from "./Partials/List";
 
 export default function Index({ auth, clients }: PageProps<{ clients: Client[] }>) {
-    const handleUpdate = (productId: number) => {
-        router.visit(route("clients.edit", productId));
+    const handleUpdate = (clientId: number) => {
+        router.visit(route("clients.edit", clientId));
     };
 
-    const handleDelete = (productId: number) => {
-        router.delete(route("clients.destroy", productId), {
+    const handleDelete = (clientId: number) => {
+        router.delete(route("clients.destroy", clientId), {
             preserveScroll: true,
         });
     };
@@ -17,7 +17,7 @@ export default function Index({ auth, clients }: PageProps<{ clients: Client[] }
     return (
         <AuthenticatedLayout
             user={auth.user}
-            header={<h2 className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">Produtos</h2>}
+            header={<h2 className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">Clientes</h2>}
         >
             <Head title="Clientes" />
             <ClientList
