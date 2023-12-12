@@ -20,6 +20,14 @@ trait ObjectStorageTrait
         ];
     }
 
+    public function createPresignedGetUrl($filename, $bucket)
+    {
+        $disk = Storage::disk($bucket);
+        $link = $disk->temporaryUrl($filename, now()->addMinutes(5));
+
+        return $link;
+    }
+
     public function deleteFile($filename, $bucket)
     {
         $disk = Storage::disk($bucket);
