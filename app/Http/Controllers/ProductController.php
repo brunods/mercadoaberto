@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\ProductCreateNotification;
 use App\Http\Requests\ProductCreateOrUpdateRequest;
 use App\Models\Product;
 use Inertia\Inertia;
@@ -31,7 +32,8 @@ class ProductController extends Controller
      */
     public function store(ProductCreateOrUpdateRequest $request)
     {
-        Product::create($request->only(['name', 'description', 'price']));
+        $product = Product::create($request->only(['name', 'description', 'price']));
+        event(new ProductCreateNotification($product));
     }
 
     /**

@@ -3,13 +3,13 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, useForm } from "@inertiajs/react";
 import { FormEventHandler } from "react";
 import ProductForm, { ProductFormProps } from "./Partials/Form";
+import { router } from "@inertiajs/core";
 
 export default function ProductCreate({ auth, product }: PageProps<{ product?: Product }>) {
     const {
         data,
         errors,
         processing,
-        recentlySuccessful,
         isDirty,
         setData,
         post,
@@ -31,7 +31,11 @@ export default function ProductCreate({ auth, product }: PageProps<{ product?: P
             return put(route("products.update", product.id));
         }
 
-        post(route("products.store"));
+        post(route("products.store"), {
+            onSuccess: () => {
+                router.visit('/products');
+            },
+        });
     };
 
     return (
@@ -45,7 +49,6 @@ export default function ProductCreate({ auth, product }: PageProps<{ product?: P
                 data={data}
                 errors={errors}
                 processing={processing}
-                recentlySuccessful={recentlySuccessful}
                 isDirty={isDirty}
                 onChange={handleChange}
                 onSubmit={handleSubmit}
