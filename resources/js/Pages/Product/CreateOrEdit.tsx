@@ -28,7 +28,11 @@ export default function ProductCreate({ auth, product }: PageProps<{ product?: P
         event.preventDefault();
 
         if (product) {
-            return put(route("products.update", product.id));
+            return put(route("products.update", product.id), {
+                onSuccess: () => {
+                    router.visit('/products');
+                },
+            });
         }
 
         post(route("products.store"), {
