@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
+        "doctrine/dbal": "*",
         "guzzlehttp/guzzle": "^7.2",
         "inertiajs/inertia-laravel": "^0.6.3",
         "laravel/framework": "^10.10",
@@ -20,6 +21,7 @@
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
+        "fumeapp/modeltyper": "^2.2",
         "laravel/breeze": "^1.26",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.18",
@@ -57,7 +59,8 @@
             "@php artisan key:generate --ansi"
         ],
         "analyse": "./vendor/bin/phpstan analyse --memory-limit=2G",
-        "format": "./vendor/bin/pint"
+        "format": "./vendor/bin/pint",
+        "codegen": "php artisan model:typer --no-relations > resources/js/types/generated.d.ts"
     },
     "extra": {
         "laravel": {

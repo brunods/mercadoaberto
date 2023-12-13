@@ -1,16 +1,6 @@
-export interface User {
-    id: number;
-    name: string;
-    email: string;
-    email_verified_at: string;
-}
+import { User } from "./generated";
 
-export interface Product {
-    id: number;
-    name: string;
-    description: string;
-    price: number;
-}
+export * from "./generated";
 
 export type PageProps<T extends Record<string, unknown> = Record<string, unknown>> = T & {
     auth: {
