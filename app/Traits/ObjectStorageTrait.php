@@ -47,7 +47,7 @@ trait ObjectStorageTrait
         ];
     }
 
-    public function createPresignedUrl($filename, $bucket, $operation)
+    private function createPresignedUrl($filename, $bucket, $operation)
     {
         $cmd = $this->s3->getCommand($operation, [
             'Bucket' => $bucket,
