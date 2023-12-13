@@ -22,3 +22,4 @@
 - `php artisan insights`: analisa e mostra qualidade de código e code style
 - `npm run storybook`: roda o servidor storybook
 - `npm run test`: testes e2e do front end
+- `composer run-script codegen`: gera tipagens typescript dos models
