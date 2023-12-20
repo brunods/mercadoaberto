@@ -4,6 +4,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\WaController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -57,6 +58,13 @@ Route::middleware('auth')->group(function () {
         Route::post('/', [ClientController::class, 'store'])->name('clients.store');
         Route::put('/{client}', [ClientController::class, 'update'])->name('clients.update');
         Route::delete('/{client}', [ClientController::class, 'destroy'])->name('clients.destroy');
+    });
+
+    Route::group(['prefix' => 'wa-service'], function () {
+        Route::post('send-text', [WaController::class, 'sendTextMessage']);
+        Route::post('send-image', [WaController::class, 'sendImageMessage']);
+        Route::post('send-video', [WaController::class, 'sendVideoMessage']);
+        Route::post('send-audio', [WaController::class, 'sendAudioMessage']);
     });
 
 });
