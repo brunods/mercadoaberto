@@ -43,6 +43,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
+    "@tailwindcss/typography": "^0.5.10",
     "laravel-echo": "^1.15.3",
     "pusher-js": "^8.4.0-rc2",
     "zustand": "^4.4.7"
