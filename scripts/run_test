@@ -1,0 +1,3 @@
+echo "Test Unitário - Artisan"
+parameter=$1
+php artisan test --filter $parameter
