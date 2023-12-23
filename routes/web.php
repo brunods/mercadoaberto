@@ -1,9 +1,11 @@
 <?php
 
 use App\Events\UserNotification;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\WaController;
 use App\Models\User;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -50,6 +52,23 @@ Route::middleware('auth')->group(function () {
         Route::put('/{product}', [ProductController::class, 'update'])->name('products.update');
         Route::delete('/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
     });
+
+    Route::group(['prefix' => '/clients'], function () {
+        Route::get('/', [ClientController::class, 'index'])->name('clients');
+        Route::get('/create', [ClientController::class, 'create'])->name('clients.create');
+        Route::get('/{client}/edit', [ClientController::class, 'edit'])->name('clients.edit');
+        Route::post('/', [ClientController::class, 'store'])->name('clients.store');
+        Route::put('/{client}', [ClientController::class, 'update'])->name('clients.update');
+        Route::delete('/{client}', [ClientController::class, 'destroy'])->name('clients.destroy');
+    });
+
+    Route::group(['prefix' => 'wa-service'], function () {
+        Route::post('send-text', [WaController::class, 'sendTextMessage']);
+        Route::post('send-image', [WaController::class, 'sendImageMessage']);
+        Route::post('send-video', [WaController::class, 'sendVideoMessage']);
+        Route::post('send-audio', [WaController::class, 'sendAudioMessage']);
+    });
+
 });
 
 Route::get('/send-notification/{user}', function (User $user) {
