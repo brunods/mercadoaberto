@@ -4,11 +4,13 @@ export interface UseBroadcast {
     channel: string;
     event: string;
     handle: Function;
+    isPrivate?: boolean;
 }
 
-export default function useBroadcast({ channel, event, handle }: UseBroadcast) {
+export default function useBroadcast({ channel, event, handle, isPrivate = false }: UseBroadcast) {
     useEffect(() => {
-        window.Echo.channel(channel).listen(event, handle);
+        (isPrivate ? window.Echo.private(channel) : window.Echo.channel(channel))
+            .listen(event, handle);
         return () => {
             window.Echo.leaveChannel(channel);
         };

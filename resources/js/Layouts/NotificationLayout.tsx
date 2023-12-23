@@ -1,11 +1,11 @@
 import NotificationComponent from "@/Components/Notification";
 import useBroadcast from "@/Hooks/useBroadcast";
 import { useNotificationStore } from "@/Store/notification";
-import { Product } from "@/types";
+import { Product, User } from "@/types";
 import { ReactNode } from "react";
 import { createPortal } from "react-dom";
 
-export default function NotificationLayout({ children }: { children: ReactNode }) {
+export default function NotificationLayout({ user, children }: { user: User; children: ReactNode }) {
     const { notifications, add, remove } = useNotificationStore();
 
     useBroadcast({
@@ -18,6 +18,20 @@ export default function NotificationLayout({ children }: { children: ReactNode }
                 message: product.name,
                 type: "info",
             });
+        },
+    });
+
+    useBroadcast({
+        channel: `User.${user.id}`,
+        event: 'UserNotification',
+        isPrivate: true,
+        handle: () => {
+            add({
+                id: crypto.randomUUID(),
+                title: 'Notificação privada',
+                message: 'Chegou notificação em canal privado aqui',
+                type: 'info',
+            })
         },
     });
 

@@ -1,10 +1,12 @@
 <?php
 
+use App\Events\UserNotification;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WaController;
+use App\Models\User;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -67,6 +69,10 @@ Route::middleware('auth')->group(function () {
         Route::post('send-audio', [WaController::class, 'sendAudioMessage']);
     });
 
+});
+
+Route::get('/send-notification/{user}', function (User $user) {
+    event(new UserNotification($user));
 });
 
 require __DIR__.'/auth.php';
