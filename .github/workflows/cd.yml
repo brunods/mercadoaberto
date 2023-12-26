@@ -1,0 +1,30 @@
+name: Deploy
+
+on:
+  push:
+    branches: [develop]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.PRIVATE_KEY }}
+        port: 22
+        script: |
+          cd ~/mercadoaberto
+          git switch develop
+          git pull origin develop
+          npm install
+          composer install
+          npm run build
+          cd ./deploy
+          docker system prune --force
+          docker image prune --all --force
+          docker compose build
+          docker compose up -d
