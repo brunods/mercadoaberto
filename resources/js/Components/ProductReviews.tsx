@@ -38,7 +38,7 @@ const ProductReviews = ({ rating, reviews }: ProductReviewsProps) => {
                         <h2 className="text-gray-800 font-[500] text-[20px]">Avaliação dos usuários</h2>
                         <p className="text-gray-500">Veja o que outras pessoas que compraram dessa loja estão falando</p>
                     </div>
-                    <div className="ml-3">
+                    <div className="ml-2">
                         <ArrowIcon isOpen={isReviewOpen} onClick={toggleReview} />
                     </div>
                 </div>
