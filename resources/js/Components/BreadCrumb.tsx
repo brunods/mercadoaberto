@@ -1,6 +1,5 @@
 import { Link } from '@inertiajs/react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import CustomIcon from './CustomIcon';
 
 export default function BreadCrumb(propos: any) {
     const paths = propos.paths;
@@ -12,13 +11,27 @@ export default function BreadCrumb(propos: any) {
                     <li key={index} className={`flex items-center ${index === paths.length - 1 ? 'text-primary' : ''}`}>
                         {index !== paths.length - 1 && (
                             <>
-                                {index !== 0 && <FontAwesomeIcon className="mx-2.5" icon={faAngleRight} />}
+                                {index !== 0 &&
+                                    <CustomIcon
+                                        width={24}
+                                        height={10}
+                                        color="#B0B0B0"
+                                        path="M1 9L5 5L1 1"
+                                    />
+                                }
                                 <Link href={path.url}>{path.path}</Link>
                             </>
                         )}
                         {index === paths.length - 1 && (
                             <>
-                                {index !== 0 && <FontAwesomeIcon className="mx-2.5 text-primary" icon={faAngleRight} />}
+                                {index !== 0 &&
+                                    <CustomIcon
+                                        width={24}
+                                        height={10}
+                                        color="#516AD2"
+                                        path="M1 9L5 5L1 1"
+                                    />
+                                }
                                 {path.path}
                             </>
                         )}
