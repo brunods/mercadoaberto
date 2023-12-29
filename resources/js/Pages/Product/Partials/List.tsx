@@ -4,8 +4,8 @@ import { Link } from "@inertiajs/react";
 
 interface ProductListProps {
     products?: Product[];
-    onUpdate?: (productId: number) => void;
-    onDelete?: (productId: number) => void;
+    onUpdate?: (productId: string) => void;
+    onDelete?: (productId: string) => void;
 }
 
 export default function ProductList({ products = [], onUpdate, onDelete }: ProductListProps) {
