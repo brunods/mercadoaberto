@@ -31,5 +31,5 @@ jobs:
             docker image prune --all --force
             docker compose build
             docker compose up -d
-            docker exec -it --user=root mercado_aberto_php chmod -R 777 /var/www/storage
-            docker exec -it --user=root mercado_aberto_php php artisan migrate
+            docker exec --user=root mercado_aberto_php chmod -R 777 /var/www/storage
+            docker exec --user=root mercado_aberto_php php artisan migrate
