@@ -34,7 +34,7 @@ services:
         ports:
             - 5432:5432
         environment:
-            POSTGRES_DB: mercardo_aberto
+            POSTGRES_DB: mercado_aberto
             POSTGRES_USER: postgres
             POSTGRES_PASSWORD: password
         volumes:
