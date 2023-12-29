@@ -27,8 +27,7 @@ jobs:
             composer install
             npm run build
             cd ./deploy
-            docker system prune --force
-            docker image prune --all --force
+            docker compose down
             docker compose build
             docker compose up -d
             docker exec --user=root mercado_aberto_php chmod -R 777 /var/www/storage
