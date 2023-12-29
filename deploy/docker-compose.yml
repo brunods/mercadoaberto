@@ -1,0 +1,47 @@
+version: "3.8"
+
+services:
+    mercado_aberto_php:
+        build:
+            args:
+                user: mercado_aberto
+                uid: 1000
+            context: ../
+            dockerfile: ./deploy/Dockerfile
+        image: mercado_aberto_php
+        container_name: mercado_aberto_php
+        restart: unless-stopped
+        volumes:
+            - ../:/var/www
+        networks:
+            - mercado_aberto_network
+
+    mercado_aberto_nginx:
+        image: nginx:alpine
+        container_name: mercado_aberto_nginx
+        restart: unless-stopped
+        ports:
+            - 8000:80
+        volumes:
+            - ../:/var/www
+            - ./nginx:/etc/nginx/conf.d/
+        networks:
+            - mercado_aberto_network
+
+    mercado_aberto_pgsql:
+        image: postgres:16
+        container_name: mercado_aberto_pgsql
+        ports:
+            - 5432:5432
+        environment:
+            POSTGRES_DB: mercardo_aberto
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: password
+        volumes:
+            - ../.docker/postgres:/var/lib/postgresql/data
+        networks:
+            - mercado_aberto_network
+
+networks:
+    mercado_aberto_network:
+        driver: bridge

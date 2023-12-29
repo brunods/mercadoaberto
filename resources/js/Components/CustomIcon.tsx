@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 const CustomIcon = ({ width = 24, height = 24, color = 'black', path }: { width?: number, height?: number, color?: string, path: string }) => {

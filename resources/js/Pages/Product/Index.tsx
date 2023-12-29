@@ -4,11 +4,11 @@ import { Head, router } from "@inertiajs/react";
 import ProductList from "./Partials/List";
 
 export default function Index({ auth, products }: PageProps<{ products: Product[] }>) {
-    const handleUpdate = (productId: number) => {
+    const handleUpdate = (productId: string) => {
         router.visit(route("products.edit", productId));
     };
 
-    const handleDelete = (productId: number) => {
+    const handleDelete = (productId: string) => {
         router.delete(route("products.destroy", productId), {
             preserveScroll: true,
         });
