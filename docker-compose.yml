@@ -4,7 +4,7 @@ services:
     ports:
       - '${DB_PORT:-5432}:5432'
     environment:
-      POSTGRES_DB: '${DB_DATABASE:-mercardo_aberto}'
+      POSTGRES_DB: '${DB_DATABASE:-mercado_aberto}'
       POSTGRES_USER: '${DB_USERNAME:-postgres}'
       POSTGRES_PASSWORD: '${DB_PASSWORD:-password}'
     volumes:
