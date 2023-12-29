@@ -32,3 +32,4 @@ jobs:
             docker image prune --all --force
             docker compose build
             docker compose up -d
+            docker exec -it --user=root mercado_aberto_php chmod -R 777 /var/www/storage

@@ -44,7 +44,7 @@ jobs:
       - name: Install Composer dependencies
         run: composer install --prefer-dist --no-progress --no-suggest
 
-      - name: Install npm dependencies
+      - name: Install NPM dependencies
         run: npm install
 
       - name: Build frontend
@@ -65,7 +65,7 @@ jobs:
       - name: Start backend
         run: php artisan serve &
 
-      - name: Install Playwright Browsers
+      - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
       - name: Run e2e tests
