@@ -24,7 +24,7 @@ jobs:
             export NVM_DIR=~/.nvm
             source ~/.nvm/nvm.sh
             npm install
-            composer install
+            COMPOSER_ALLOW_SUPERUSER=1 composer install
             npm run build
             cd ./deploy
             docker compose down
