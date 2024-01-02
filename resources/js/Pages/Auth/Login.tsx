@@ -65,44 +65,44 @@ export default function Login() {
                                 </div>
                                 <div
                                     className="
-                                        flex justify-between items-center
-                                        gap-2
+                                        flex flex-col-reverse justify-between items-center
+                                        gap-2 lg:flex-row
                                     "
                                 >
                                     <Link
-                                        className="font-inter font-bold border-[1px] border-gray-900 rounded-[4px] text-gray-900 text-xs text-center w-full px-3 py-2"
+                                        className="font-inter font-bold border-[1px] border-gray-900 rounded-[4px] text-gray-900 text-[14px] text-center w-full px-3 py-2"
                                         href='#'>
                                         Não possui uma conta
                                     </Link>
                                     <button
                                         className="
-                                            font-inter font-bold bg-secondary border-secondary border-[1px] text-white rounded-[4px] text-xs w-full px-3 py-2
+                                            font-inter font-bold bg-secondary border-secondary border-[1px] text-white rounded-[4px] text-[14px] w-full px-3 py-2
                                         "
                                     >
                                         Entrar
                                     </button>
                                 </div>
-                                <p className="w-fit my-4 m-auto font-inter text-gray-600 text-[12px]">Ou acesse com sua rede social</p>
+                                <p className="w-fit my-6 m-auto font-inter text-gray-600 text-[14px] font-medium">Ou acesse com sua rede social</p>
                                 <div
                                     className="
-                                        flex justify-between items-center
+                                        flex justify-center items-center
                                         mb-4
                                         gap-2
                                     "
                                 >
                                     <Link
-                                        className="flex items-center justify-center font-inter font-medium border-[1px] border-gray-100 text-gray-600 rounded-[4px] text-[10px] w-full px-3 py-2"
+                                        className="flex items-center justify-center font-inter font-medium border-[1px] border-gray-100 text-gray-600 rounded-[4px] text-[10px] w-fit px-3 py-2"
                                         href='#'
                                     >
-                                        <img className="w-4 mr-3" src="/assets/images/icon-fb-true.svg" />
-                                        Entrar com Facebook
+                                        <img className="w-6 lg:mr-3 lg:w-4" src="/assets/images/icon-fb-true.svg" />
+                                        <p className="hidden text-[14px] lg:flex">Entrar com Facebook</p>
                                     </Link>
                                     <Link
-                                        className="flex items-center justify-center font-inter font-medium border-[1px] border-gray-100 text-gray-600 rounded-[4px] text-[10px] w-full px-3 py-2"
+                                        className="flex items-center justify-center font-inter font-medium border-[1px] border-gray-100 text-gray-600 rounded-[4px] text-[10px] w-fit px-3 py-2"
                                         href='#'
                                     >
-                                        <img className="w-4 mr-3" src="/assets/images/icon-google-true.svg" />
-                                        Entrar com Google
+                                        <img className="w-6 lg:mr-3 lg:w-4" src="/assets/images/icon-google-true.svg" />
+                                        <p className="hidden text-[14px] lg:flex">Entrar com Google</p>
                                     </Link>
                                 </div>
                             </form>
