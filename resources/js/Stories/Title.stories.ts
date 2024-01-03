@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import TiltesComponent from "@/Components/TitleBoxSection";
+import TiltesComponent from "@/Components/ui/TitleBoxSection";
 
 const meta = {
     title: "Title",
@@ -12,6 +12,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     args: {
-        title: "Title Box Section",
+        children: "Title",
     },
 };

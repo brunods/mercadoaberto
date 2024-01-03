@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import InputMask from 'react-input-mask';
-import TitleBoxSection from './TitleBoxSection';
+import TitleBoxSection from './ui/TitleBoxSection';
 import LinkBoxSection from './LinkBoxSection';
 
 export default function ZipCode() {
@@ -25,9 +25,9 @@ export default function ZipCode() {
         <div
             className="p-[16px] rounded-[8px] border border-gray-50 w-full"
         >
-            <TitleBoxSection
-                title="Consultar frete e prazo"
-            />
+            <TitleBoxSection>
+                Consultar frete e prazo
+            </TitleBoxSection>
             <InputMask
                 id='zip_code'
                 name='zip_code'

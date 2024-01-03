@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import CustomIcon from './CustomIcon';
-import BoxInfo from './BoxInfo';
+import BoxInfo from './ui/BoxInfo';
 
 interface Review {
     id: number;
